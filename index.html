@@ -2,186 +2,262 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🌸 CottonCandy Admin Panel 🌸</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #ff85a2;
-      --secondary: #fcd1d1;
-      --accent: #ffc0cb;
-      --bg-light: #fff0f5;
-      --bg-dark: #2a2a2a;
-      --text-light: #4b2e2e;
-      --text-dark: #fdfdfd;
-      --glass: rgba(255, 240, 245, 0.4);
+      --pink-soft: #f7c6ce;
+      --coral: #ff6f61;
+      --charcoal: #2e2e2e;
+      --mint: #4bc3b5;
+      --white: #fff;
+      --gray-light: #e3e3e3;
+      --gray-medium: #b5b5b5;
     }
 
     * {
       box-sizing: border-box;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
     }
 
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, var(--pink-soft), var(--white));
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       padding: 40px 20px;
-      color: var(--text-light);
+      color: var(--charcoal);
+      user-select: none;
     }
 
     .container {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 24px;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 26px 28px;
       width: 100%;
       max-width: 400px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
       margin: 16px 0;
-      border: 2px solid #ffe4ec;
+      border: 3px solid var(--pink-soft);
+      font-size: 15px;
     }
 
     h2, h3 {
       margin-top: 0;
-      font-weight: 600;
-      color: #d63384;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--coral);
       text-align: center;
+      letter-spacing: 1.1px;
+      user-select: text;
     }
 
-    input[type="text"], input[type="url"], input[type="password"] {
+    input[type="text"],
+    input[type="url"],
+    input[type="password"] {
       width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #fcb6c5;
+      padding: 10px 14px;
+      border: 2px solid var(--gray-light);
       border-radius: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-size: 16px;
-      background-color: #fffafa;
+      color: var(--charcoal);
+      font-weight: 600;
+      outline-offset: 2px;
+      outline-color: var(--mint);
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="url"]:focus,
+    input[type="password"]:focus {
+      border-color: var(--mint);
+      background: #f0fffc;
     }
 
     button {
-      padding: 10px 16px;
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
+      padding: 12px 18px;
+      background: var(--coral);
+      color: var(--white);
+      font-weight: 700;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
-      margin-right: 8px;
+      box-shadow: 0 4px 8px rgba(255,111,97,0.4);
+      user-select: none;
     }
-
     button:hover {
-      background: var(--accent);
-      color: #222;
+      background: var(--mint);
+      color: var(--charcoal);
+      box-shadow: 0 6px 12px rgba(75,195,181,0.5);
     }
 
     .link-btn {
       display: block;
       text-decoration: none;
-      color: white;
-      background: linear-gradient(90deg, #ffa6c9, #ffc0cb);
+      color: var(--white);
+      background: linear-gradient(90deg, var(--coral), var(--mint));
       padding: 14px;
-      border-radius: 16px;
+      border-radius: 20px;
       margin: 10px 0;
-      font-weight: 600;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
       text-align: center;
+      box-shadow: 0 4px 14px rgba(255,111,97,0.6);
+      user-select: none;
+      transition: background 0.4s ease;
+    }
+    .link-btn:hover {
+      background: linear-gradient(90deg, var(--mint), var(--coral));
+      box-shadow: 0 6px 18px rgba(75,195,181,0.8);
     }
 
     .link-row {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 6px;
-      background: rgba(255, 240, 245, 0.6);
-      padding: 8px;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     .link-row input {
-      flex: 1 1 100%;
+      flex: 1;
+      font-weight: 600;
+      border: 2px solid var(--gray-light);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 15px;
+      color: var(--charcoal);
+      outline-offset: 2px;
+      outline-color: var(--mint);
+      transition: border-color 0.3s ease;
+    }
+    .link-row input:focus {
+      border-color: var(--mint);
+      background: #f0fffc;
     }
 
     .remove-btn {
-      background: #e11d48;
+      background: #a53542;
       color: white;
       border: none;
-      padding: 6px 10px;
-      border-radius: 8px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-weight: 700;
       cursor: pointer;
+      box-shadow: 0 3px 7px rgba(165,53,66,0.7);
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .remove-btn:hover {
+      background: #e03c58;
+      box-shadow: 0 4px 12px rgba(224,60,88,0.9);
     }
 
     #darkmode-toggle {
       position: fixed;
-      top: 16px;
-      right: 16px;
-      padding: 10px 14px;
-      background: var(--primary);
-      color: white;
-      font-weight: bold;
+      top: 18px;
+      right: 18px;
+      padding: 12px 16px;
+      background: var(--coral);
+      color: var(--white);
+      font-weight: 700;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       cursor: pointer;
+      user-select: none;
+      box-shadow: 0 4px 14px rgba(255,111,97,0.7);
+      transition: background 0.3s ease;
+      z-index: 999;
     }
-
     #darkmode-toggle:hover {
-      background: var(--accent);
-      color: #000;
+      background: var(--mint);
+      color: var(--charcoal);
+      box-shadow: 0 5px 18px rgba(75,195,181,0.8);
     }
 
     body.darkmode {
-      background: var(--bg-dark);
-      color: var(--text-dark);
+      background: linear-gradient(135deg, #2a2a2a, #121212);
+      color: #eee;
     }
-
     body.darkmode .container {
-      background: rgba(80, 60, 80, 0.8);
+      background: #1f1f1f;
+      border: 3px solid var(--mint);
+      box-shadow: 0 10px 30px rgba(75,195,181,0.5);
+      color: #eee;
     }
-
-    body.darkmode .link-btn {
-      background: linear-gradient(90deg, #b44b7f, #ffa6c9);
+    body.darkmode input[type="text"],
+    body.darkmode input[type="url"],
+    body.darkmode input[type="password"] {
+      background: #2a2a2a;
+      border: 2px solid #444;
+      color: #ddd;
     }
-
+    body.darkmode input[type="text"]:focus,
+    body.darkmode input[type="url"]:focus,
+    body.darkmode input[type="password"]:focus {
+      border-color: var(--mint);
+      background: #004d4d;
+      color: #c0fff9;
+    }
     body.darkmode button {
-      background: #c03975;
+      background: var(--mint);
+      color: var(--charcoal);
+      box-shadow: 0 4px 14px rgba(75,195,181,0.7);
     }
-
     body.darkmode button:hover {
-      background: #ffb5d1;
-      color: black;
+      background: var(--coral);
+      color: var(--white);
+      box-shadow: 0 5px 18px rgba(255,111,97,0.8);
+    }
+    body.darkmode .link-btn {
+      background: linear-gradient(90deg, var(--mint), var(--coral));
+      box-shadow: 0 4px 14px rgba(75,195,181,0.8);
+    }
+    body.darkmode .link-btn:hover {
+      background: linear-gradient(90deg, var(--coral), var(--mint));
+      box-shadow: 0 6px 18px rgba(255,111,97,0.9);
+    }
+    body.darkmode .remove-btn {
+      background: #742a36;
+      box-shadow: 0 3px 7px rgba(116,42,54,0.8);
+    }
+    body.darkmode .remove-btn:hover {
+      background: #d94d5a;
+      box-shadow: 0 4px 12px rgba(217,77,90,0.9);
     }
   </style>
 </head>
 <body>
-  <button id="darkmode-toggle">🌙</button>
+  <button id="darkmode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+
   <div class="container" id="main-container">
-    <img id="avatar" src="" alt="Avatar" style="width:100px; border-radius:50%; border: 3px solid #fff; margin-bottom:12px;">
-    <h2 id="displayName">💖</h2>
+    <img id="avatar" src="" alt="Avatar" style="width:110px; border-radius:50%; border: 4px solid var(--coral); margin-bottom:14px; display:block; margin-left:auto; margin-right:auto;" />
+    <h2 id="displayName">💖 CottonCandy's Socials</h2>
     <div id="links-container"></div>
   </div>
 
   <div class="container" id="admin-login">
     <h3>🔐 Admin Login</h3>
-    <input type="password" id="passwordInput" placeholder="Enter password" />
+    <input type="password" id="passwordInput" placeholder="Enter password" aria-label="Password" />
     <button onclick="checkPassword()">Login</button>
-    <p id="loginStatus" style="color:#fca5a5;"></p>
+    <p id="loginStatus" style="color:#e03c58; font-weight:700; margin-top:8px;"></p>
   </div>
 
   <div class="container" id="admin-panel" style="display:none;">
     <h3>🎀 Edit Profile</h3>
-    <input type="text" id="adminName" placeholder="Display Name" />
-    <input type="url" id="adminAvatar" placeholder="Avatar URL" />
+    <input type="text" id="adminName" placeholder="Display Name" aria-label="Display Name" />
+    <input type="url" id="adminAvatar" placeholder="Avatar URL" aria-label="Avatar URL" />
 
     <h3>🌐 Links</h3>
     <div id="links-editor"></div>
-    <button onclick="addLink()">+ Add Link</button><br><br>
+    <button onclick="addLink()" style="margin-top: 8px;">+ Add Link</button><br /><br />
     <button onclick="saveSettings()">💾 Save Changes</button>
-    <button onclick="logout()">🚪 Logout</button>
+    <button onclick="logout()" style="background:#555; margin-left: 8px;">🚪 Logout</button>
   </div>
 
   <script>
@@ -206,7 +282,7 @@
       document.getElementById("displayName").textContent = settings.name;
       const linksContainer = document.getElementById("links-container");
       linksContainer.innerHTML = settings.links.map(link =>
-        `<a class="link-btn" href="${link.url}" target="_blank"><i class="${link.icon}"></i> ${link.label}</a>`
+        `<a class="link-btn" href="${link.url}" target="_blank" rel="noopener noreferrer"><i class="${link.icon}"></i> ${link.label}</a>`
       ).join("");
       document.getElementById("adminName").value = settings.name;
       document.getElementById("adminAvatar").value = settings.avatar;
@@ -216,10 +292,10 @@
         const row = document.createElement("div");
         row.className = "link-row";
         row.innerHTML = `
-          <input type="text" class="label" value="${link.label}" placeholder="Label" />
-          <input type="url" class="url" value="${link.url}" placeholder="URL" />
-          <input type="text" class="icon" value="${link.icon}" placeholder="Icon class" />
-          <button class="remove-btn" onclick="removeLink(${i})">Remove</button>
+          <input type="text" class="label" value="${link.label}" placeholder="Label" aria-label="Link label" />
+          <input type="url" class="url" value="${link.url}" placeholder="URL" aria-label="Link URL" />
+          <input type="text" class="icon" value="${link.icon}" placeholder="Icon class" aria-label="Icon CSS class" />
+          <button class="remove-btn" onclick="removeLink(${i})" aria-label="Remove link">Remove</button>
         `;
         editor.appendChild(row);
       });
@@ -227,22 +303,23 @@
 
     function addLink() {
       const editor = document.getElementById("links-editor");
-      const index = editor.children.length;
       const row = document.createElement("div");
       row.className = "link-row";
       row.innerHTML = `
-        <input type="text" class="label" placeholder="Label" />
-        <input type="url" class="url" placeholder="URL" />
-        <input type="text" class="icon" placeholder="Icon class" />
-        <button class="remove-btn" onclick="removeLink(${index})">Remove</button>
+        <input type="text" class="label" placeholder="Label" aria-label="Link label" />
+        <input type="url" class="url" placeholder="URL" aria-label="Link URL" />
+        <input type="text" class="icon" placeholder="Icon class" aria-label="Icon CSS class" />
+        <button class="remove-btn" onclick="removeLink(this.parentNode)" aria-label="Remove link">Remove</button>
       `;
       editor.appendChild(row);
     }
 
-    function removeLink(index) {
+    function removeLink(elementOrIndex) {
       const editor = document.getElementById("links-editor");
-      if (editor.children[index]) {
-        editor.removeChild(editor.children[index]);
+      if (typeof elementOrIndex === "number") {
+        if (editor.children[elementOrIndex]) editor.removeChild(editor.children[elementOrIndex]);
+      } else {
+        editor.removeChild(elementOrIndex);
       }
     }
 
@@ -250,13 +327,12 @@
       const name = document.getElementById("adminName").value.trim();
       const avatar = document.getElementById("adminAvatar").value.trim();
       const editor = document.getElementById("links-editor");
-      const links = [...editor.children].map(row => {
-        return {
-          label: row.querySelector(".label").value,
-          url: row.querySelector(".url").value,
-          icon: row.querySelector(".icon").value || "fas fa-link"
-        };
-      }).filter(link => link.label && link.url);
+      const links = [...editor.children].map(row => ({
+        label: row.querySelector(".label").value.trim(),
+        url: row.querySelector(".url").value.trim(),
+        icon: row.querySelector(".icon").value.trim() || "fas fa-link"
+      })).filter(link => link.label && link.url);
+
       const settings = { name, avatar, links };
       localStorage.setItem("socialSettings", JSON.stringify(settings));
       loadSettings();
