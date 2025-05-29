@@ -73,6 +73,7 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      margin-right: 8px;
     }
 
     button:hover {
@@ -112,6 +113,7 @@
       border: none;
       padding: 6px 10px;
       border-radius: 8px;
+      cursor: pointer;
     }
 
     #darkmode-toggle {
@@ -179,6 +181,7 @@
     <div id="links-editor"></div>
     <button onclick="addLink()">+ Add Link</button><br><br>
     <button onclick="saveSettings()">💾 Save Changes</button>
+    <button onclick="logout()">🚪 Logout</button>
   </div>
 
   <script>
@@ -265,9 +268,17 @@
       if (pw === ADMIN_PASSWORD) {
         document.getElementById("admin-login").style.display = "none";
         document.getElementById("admin-panel").style.display = "block";
+        document.getElementById("loginStatus").textContent = "";
       } else {
         document.getElementById("loginStatus").textContent = "❌ Incorrect password.";
       }
+    }
+
+    function logout() {
+      document.getElementById("admin-panel").style.display = "none";
+      document.getElementById("admin-login").style.display = "block";
+      document.getElementById("passwordInput").value = "";
+      document.getElementById("loginStatus").textContent = "";
     }
 
     const toggleBtn = document.getElementById("darkmode-toggle");
